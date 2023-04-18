@@ -19,13 +19,14 @@ function playDrawPoker() {
    var drawButton = document.getElementById("drawB");
    var standButton = document.getElementById("standB");
    var resetButton = document.getElementById("resetB");
-   var handValue = document.getElementById("handValue");
+   var handValueText = document.getElementById("handValue");
    var betSelection = document.getElementById("bet");
    var bankBox = document.getElementById("bank");
 
    //Set the initial values of the pokerGame object
 pokerGame.currentBank = 500;
 pokerGame.currentBet = 25;
+
 
    //Create a new deck of cards and shuffle it
 var myDeck = new pokerDeck();
@@ -65,7 +66,7 @@ betSelection.onchange = function(e) {
       disableObj(standButton);
       bankBox.value = pokerGame.placeBet();
    } else {
-      alert("Reduce the size of your bet")
+      alert("Reduce the size of your bet");
    }
    });
    standButton.addEventListener("click", function() {

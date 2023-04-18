@@ -54,15 +54,15 @@ function pokerCard(cardSuit, cardRank) {
 }
 
 /* Constructor function or poker decks */
-function pokerCard() {
+function pokerDeck() {
    this.cards = new Array(52);
 
    var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
    var ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
 
    var cardCount = 0;
-   for (var i = 0; i <4; i++) {
-      for (var j = 0; j < 12; j++) {
+   for (var i = 0; i < 4; i++) {
+      for (var j = 0; j < 13; j++) {
          this.cards[cardCount] = new pokerCard(suits[i], ranks[j]);
          this.cards[cardCount].rankValue = j+2;
          cardCount++;
