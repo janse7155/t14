@@ -34,3 +34,45 @@
 	
 */
 
+/* The pokerGame Object */
+var pokerGame = {
+   currentBank: null,
+   currentBet: null,
+
+
+   placeBet: function() {
+      this.currentBank -= this.currentBet;
+      return this.currentBank;
+   }
+};
+
+/* Constructor function for poker cards */
+function pokerCard(cardSuit, cardRank) {
+   this.suit = cardSuit;
+   this.rank = cardRank;
+   this.rankValue = null;
+}
+
+/* Constructor function or poker decks */
+function pokerCard() {
+   this.cards = new Array(52);
+
+   var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+   var ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
+
+   var cardCount = 0;
+   for (var i = 0; i <4; i++) {
+      for (var j = 0; j < 12; j++) {
+         this.cards[cardCount] = new pokerCard(suits[i], ranks[j]);
+         this.cards[cardCount].rankValue = j+2;
+         cardCount++;
+      }
+   }
+
+   //Method to randomly sort the deck
+   this.shuffle = function() {
+      this.cards.sort(function() {
+         return 0.5 - Math.random();
+      });
+   };
+}
